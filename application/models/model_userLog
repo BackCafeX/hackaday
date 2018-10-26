@@ -1,0 +1,20 @@
+<?php
+class model_userLog extends CI_Model
+{
+  public function __construct()
+  {
+    parent::__construct();
+
+
+  }
+  public function login($username,$password)
+  {
+    $data = $this->db->get_where('member',array('member_user'=>$username,'member_pass'=>$password));
+    if($data->num_rows() > 0){
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+
+}
