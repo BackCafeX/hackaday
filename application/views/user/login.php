@@ -122,7 +122,14 @@
 	.darkBule {
 		background: #e6f2ff;
 	}
-	.
+	.pic {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 5px;
+		margin-right: 5px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		 border-radius: 5px;
+	}
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -140,7 +147,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">LOGIN</h2>
+					<h5 class="text-center">Know Late 2 Learn</h5><br><br>
 					<?php echo form_open('Auth/login');  ?> <!-- post -->
 					<div class="form-group">
 						<label class="text-uppercase">รหัสผู้ใช้งาน</label>
@@ -201,7 +208,7 @@
 					<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
 					<div class="carousel-inner" role="listbox">
-						<div class="carousel-item active">
+						<div class="carousel-item active pic">
 						<a href="https://science.missouristate.edu/assets/science/StudyGroup2.jpg">
 							<img class="d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup.jpg" 
 							alt="https://science.missouristate.edu/assets/science/StudyGroup2.jpg" title="https://science.missouristate.edu/assets/science/StudyGroup2.jpg"> </a>
