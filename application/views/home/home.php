@@ -2,7 +2,20 @@
 tbody tr:hover{
  background-color: #f0f0f5
 }
-
+.form-control-3 {
+	  display: block;
+	  width: 70%;
+	  height: calc(2.25rem + 2px);
+	  padding: 0.375rem 0.75rem;
+	  font-size: 1rem;
+	  line-height: 1.5;
+	  color: #495057;
+	  background-color: #fff;
+	  background-clip: padding-box;
+	  border: 1px solid #ced4da;
+	  border-radius: 0.25rem;
+	  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
 
 </style>
 
@@ -87,12 +100,12 @@ tbody tr:hover{
   <div class="w3-row-padding">
     <div class="w3-col m12">
       <div class="w3-card w3-round w3-white">
-        <div class="w3-container w3-padding">
+        <div class="w3-container w3-padding" >
           <div class="form-group">
-            <button type="button" href="#myModal" style="border-radius: 2px;1" class="w3-round w3-btn w3-theme" data-toggle="modal" data-target="#myModal">
+			<div style="magin-bottom: 0;">
+            <button type="button" href="#myModal" style="border-radius: 8px;" class="w3-round w3-btn w3-theme" data-toggle="modal" data-target="#myModal">
               <i class="fa fa-pencil"></i> สร้างห้องสอน</button>
-              
-              
+            </div>  
               <!-- Modal -->
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -109,26 +122,21 @@ tbody tr:hover{
                       <?php echo form_open('Auth/register');  ?>
                       <div class="modal-body">
                         <div class="form-group">
-                          <label  class="text-uppercase">รหัสผู้ใช้งาน</label>
-                          <input required name="member_user" type="text" class="form-control" placeholder="กรอกรหัสผู้ใช้งาน">
-                        </div> <!-- username -->
+                          <label  class="text-uppercase">ชื่อห้อง</label>
+                          <input required name="course-name" type="text" class="form-control" placeholder="มาเรียนกับครูนวลนะ">
+                        </div> <!-- room name -->
                         <div class="form-group">
-                          <label  class="text-uppercase">รหัสผ่าน</label>
-                          <input required name="member_pass" type="password" class="form-control" placeholder="กรอกรหัสผ่าน">
-                        </div> <!-- password -->
-                        <div class="form-group">
-                          <label class="text-uppercase">อีเมลล์</label>
-                          <input required name="member_email" type="email" class="form-control" placeholder="กรอกอีเมลล์ เช่น example@example.com">
-                        </div> <!-- email -->
-                        <div class="form-group">
-                          <div class="row">
-                           <div class="col-sm-4">
-                           </div>
-                         </div>
-                       </div> <!-- form-group -->
-
-
-
+                          <label  class="text-uppercase">วิชาที่สอน</label>
+                          <input required name="course-subject" type="password" class="form-control" placeholder="การโปรแกรม">
+                        </div> <!-- subject -->
+						<div class="form-group">
+							<label class="text-uppercase">จำนวนคน</label>
+							<input class="form-control-3" type="number" name="course-people" min="1" max="20" placeholder="1, 2 etc.">
+						</div> <!-- number of people -->
+						<div class="form-group">
+                          <label  class="text-uppercase">สถานที่</label>
+                          <input required name="course-place" type="password" class="form-control" placeholder="IF-5t05">
+                        </div> <!-- place -->
                      </div>
                      <div class="modal-footer">
                       <button type="submit" class="btn btn-secondary" data-dismiss="modal">ปิด</button>

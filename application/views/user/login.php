@@ -255,8 +255,21 @@
 										<label class="text-uppercase">อีเมลล์</label>
 										<input required name="member_email" type="email" class="form-control" placeholder="กรอกอีเมลล์ เช่น example@example.com">
 									</div> <!-- email -->
-									<div class="form-group">
-									 <div class="row">
+									<div class="row">
+										<div class="form-group col-sm-6">
+											<label  class="text-uppercase">ชื่อ</label>
+											<input required name="fname_user" type="text" class="form-control" placeholder="อธิรุจน์">
+										</div> <!-- name -->
+										<div class="form-group col-sm-6">
+											<label  class="text-uppercase">นามสกุล</label>
+											<input required name="lname_user" type="text" class="form-control" placeholder="ภูศิตาภรณ์">
+										</div> <!-- lastname -->
+									</div>
+									<div class="form-group ">
+											<label  class="text-uppercase">คณะ</label>
+											<input required name="fac_user" type="text" class="form-control" placeholder="วิทยาการสารสนเทศ">
+									</div> <!-- faculty -->
+									<div class="row">
 										<div class="col-sm-8 form-group">
 										<label class="text-uppercase">อายุ</label>
 										  <input class="form-control-2" type="number" name="member_age" min="16" max="30" placeholder="15">
@@ -264,13 +277,12 @@
 										 </div>
 										 <div class="col-sm-4">
 										   <label class="check-box text-uppercase check"> 
-											  <input type="checkbox" name="member_gender" for="check-one" class="form-radio" value="m" ><label for="radio-one">ชาย</label>
+											  <input type="radio" name="member_gender" for="check-one" class="form-radio" value="m" ><label for="radio-one">ชาย</label>
 											</label>
 											<label class="check-box text-uppercase check">
-											  <input type="checkbox" name="member_gender" for="check-one" class="form-radio" value="f"><label for="radio-one"> หญิง</label>
+											  <input type="radio" name="member_gender" for="check-one" class="form-radio" value="f"><label for="radio-one"> หญิง</label>
 											</label>
 											<!-- gender -->
-										 </div>
 										 </div>
 									</div> <!-- other -->
 								<div class="modal-footer">

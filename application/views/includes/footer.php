@@ -2,9 +2,15 @@
 </div>
 <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery-3.3.1.min" crossorigin="anonymous"></script>
-
+<style>
+	#footer{
+		width:100%;
+	    /* position:absolute; */
+		bottom:0;
+	}
+</style>
 <!-- Footer -->
-<footer class="w3-container w3-theme-d4 w3-padding-16">
+<footer class="w3-container w3-theme-d4 w3-padding-16" id="footer">
   <center><p class="me-text-white">Powered by <a href="#" target="_blank">ILLUMINATI SE#7</a> <br>
   Contact information: <a href="cluster.se7@gmail.com">cluster.se7@gmail.com</a></center>
 </footer>
