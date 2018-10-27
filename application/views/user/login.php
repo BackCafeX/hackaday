@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login - HackAday</title>
+	<title>Login - Hackaday</title>
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -13,15 +13,18 @@
 	url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
 	;
 
+	.body{
+		background: #66b3ff;
+	}
 	.login-block {
 		background: #DE6262; /* fallback for old browsers */
 		background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
 		/* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to bottom, #FFB88C, #DE6262);
+		background: linear-gradient(to bottom, #e6f2ff, #66b3ff);
 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 		float: left;
 		width: 100%;
-		padding: 50px 0;
+		padding: 20px 0;
 	}
 
 	.banner-sec {
@@ -43,13 +46,13 @@
 		border-radius: 0 10px 10px 0;
 	}
 
-	.carousel-caption {
+	.carousel-caption { 
 		text-align: left;
 		left: 5%;
 	}
 
 	.login-sec {
-		padding: 50px 30px;
+		padding: 40px 30px;
 		position: relative;
 	}
 
@@ -73,14 +76,14 @@
 		margin-bottom: 30px;
 		font-weight: 800;
 		font-size: 30px;
-		color: #DE6262;
+		color: #1a1a1a;
 	}
 
 	.login-sec h2:after {
 		content: " ";
 		width: 100px;
 		height: 5px;
-		background: #FEB58A;
+		background: #808080;
 		display: block;
 		margin-top: 20px;
 		border-radius: 3px;
@@ -89,7 +92,7 @@
 	}
 
 	.btn-login {
-		background: #DE6262;
+		background: #66b3ff;
 		color: #fff;
 		font-weight: 600;
 	}
@@ -116,9 +119,10 @@
 		border-radius: 3px;
 	}
 
-	.banner-text p {
-		color: #fff;
+	.darkBule {
+		background: #e6f2ff;
 	}
+	.
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -131,25 +135,24 @@
 		$('#myInput').trigger('focus')
 	})
 </script>
-<body>
+<body class="body">
 	<section class="login-block">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Know Late 2 Learn</h2>
-					<?php echo form_open('Auth/login');  ?>
+					<h2 class="text-center">LOGIN</h2>
+					<?php echo form_open('Auth/login');  ?> <!-- post -->
 					<div class="form-group">
-						<label for="exampleInputEmail1" class="text-uppercase">รหัสผู้ใช้งาน</label>
-						<input required type="text" class="form-control" placeholder="" name="member_user">
-
-					</div>
+						<label class="text-uppercase">รหัสผู้ใช้งาน</label>
+						<input required type="text" class="form-control" name="member_user" placeholder="รหัสผู้ใช้งาน">
+					</div> 
 					<div class="form-group">
-						<label for="exampleInputPassword1" class="text-uppercase">รหัสผ่าน</label>
-						<input required type="password" class="form-control" placeholder="" name="member_pass">
-					</div>
+						<label class="text-uppercase">รหัสผ่าน</label>
+						<input required type="password" class="form-control" name="member_pass" placeholder="รหัสผ่าน">
+					</div> <!--  pass -->
 
 					<div class="form-check">
-						<input  type="submit" name="blogin" class="btn btn-login float-right" value="เข้าสู่ระบบ"></input>
+						<input type="submit" name="blogin" class="btn btn-login float-right " value="เข้าสู่ระบบ">
 					</div>
 					<?php echo form_close();?>
 
@@ -166,15 +169,19 @@
 									<div class="form-group">
 										<label  class="text-uppercase">รหัสผู้ใช้งาน</label>
 										<input required name="member_user" type="text" class="form-control" placeholder="กรอกรหัสผู้ใช้งาน">
-									</div>
+									</div> <!-- username -->
 									<div class="form-group">
 										<label  class="text-uppercase">รหัสผ่าน</label>
 										<input required name="member_pass" type="password" class="form-control" placeholder="กรอกรหัสผ่าน">
-									</div>
+									</div> <!-- password -->
 									<div class="form-group">
 										<label class="text-uppercase">อีเมลล์</label>
 										<input required name="member_email" type="email" class="form-control" placeholder="กรอกอีเมลล์ เช่น example@example.com">
-									</div>
+									</div> <!-- email -->
+									<div class="form-group">
+										<label class="text-uppercase">อายุ</label>
+										<input required name="member_email" type="" class="form-control" placeholder="">
+									</div> <!-- email -->
 								</div>
 								<div class="modal-footer">
 									<button type="submit" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
@@ -184,68 +191,30 @@
 
 							</div>
 						</div>
-					</div>
-
-
-
-					<div class="copy-text">
-						Created with <i class="fa fa-heart"></i> by <a
-						href="#">Tar' Jiramate</a>
+					</div>  <!-- Register -->
+					
+					<div class="copy-text text-center">
+						Created with <i class="fa fa-heart"></i>
 					</div>
 				</div>
-				<div class="col-md-8 banner-sec">
+				<div class="col-md-8"> 
 					<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0"
-						class="active"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
-							<img class="d-block img-fluid"
-							src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
-							alt="First slide">
+						<a href="https://science.missouristate.edu/assets/science/StudyGroup2.jpg">
+							<img class="d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup.jpg" 
+							alt="https://science.missouristate.edu/assets/science/StudyGroup2.jpg" title="https://science.missouristate.edu/assets/science/StudyGroup2.jpg"> </a>
 							<div class="carousel-caption d-none d-md-block">
 								<div class="banner-text">
-									<h2>This is Heaven</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-										sed do eiusmod tempor incididunt ut labore et dolore magna
-									aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid"
-							src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg"
-							alt="First slide">
-							<div class="carousel-caption d-none d-md-block">
-								<div class="banner-text">
-									<h2>This is Heaven</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-										sed do eiusmod tempor incididunt ut labore et dolore magna
-									aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid"
-							src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg"
-							alt="First slide">
-							<div class="carousel-caption d-none d-md-block">
-								<div class="banner-text">
-									<h2>This is Heaven</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-										sed do eiusmod tempor incididunt ut labore et dolore magna
-									aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+									 <!-- text -->
 								</div>
 							</div>
 						</div>
 					</div>
 
 				</div>
-			</div>
+			</div> <!-- Right banner -->
 		</div>
 
 	</section>
