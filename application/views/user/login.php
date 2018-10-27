@@ -129,7 +129,11 @@
 		margin-left: 5px;
 		margin-right: 5px;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+<<<<<<< HEAD
 		border-radius: 5px;
+=======
+		 border-radius: 5px;
+>>>>>>> af5fb34b45d3dc828680b10f0d80598fa580266e
 	}
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -148,6 +152,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
+<<<<<<< HEAD
 					<h3 class="text-center">Know Late 2 Learn</h3><br><br>
 					<?php echo form_open('Auth/login');  ?> 
 					<div class="form-group">
@@ -160,6 +165,19 @@
 						<input required type="password" class="form-control" name="member_pass" placeholder="รหัสผ่าน">
 					</div> 
 					<!--  password -->
+=======
+					<h5 class="text-center">Know Late 2 Learn</h5><br><br>
+					<?php echo form_open('Auth/login');  ?> <!-- post -->
+					<div class="form-group">
+						<label class="text-uppercase">รหัสผู้ใช้งาน</label>
+						<input required type="text" class="form-control" name="member_user" placeholder="รหัสผู้ใช้งาน">
+					</div> 
+					<div class="form-group">
+						<label class="text-uppercase">รหัสผ่าน</label>
+						<input required type="password" class="form-control" name="member_pass" placeholder="รหัสผ่าน">
+					</div> <!--  pass -->
+
+>>>>>>> af5fb34b45d3dc828680b10f0d80598fa580266e
 					<div class="form-check">
 						<input type="submit" name="blogin" class="btn btn-login float-right " value="เข้าสู่ระบบ">
 					</div>
@@ -189,6 +207,7 @@
 									</div> <!-- email -->
 									<div class="form-group">
 										<label class="text-uppercase">อายุ</label>
+<<<<<<< HEAD
 										<div class="container">
 										<form action="/action_page.php">
 										  <input type="datetime-local" name="bdaytime">
@@ -197,6 +216,10 @@
 											 <!-- // Date selector -->
 											<input required name="member_email" type="" class="form-control" placeholder="">
 										</div> <!-- email -->
+=======
+										<input required name="member_email" type="" class="form-control" placeholder="">
+									</div> <!-- email -->
+>>>>>>> af5fb34b45d3dc828680b10f0d80598fa580266e
 								</div>
 								<div class="modal-footer">
 									<button type="submit" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
@@ -207,6 +230,7 @@
 							</div>
 						</div>
 					</div>  <!-- Register -->
+<<<<<<< HEAD
 				</div>
 				<div class="copy-text text-center">
 						Created with <i class="fa fa-heart"></i>
@@ -219,6 +243,20 @@
 						<div class="carousel-item active ">
 						<a href="https://science.missouristate.edu/assets/science/StudyGroup2.jpg">
 							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup.jpg" 
+=======
+					
+					<div class="copy-text text-center">
+						Created with <i class="fa fa-heart"></i>
+					</div>
+				</div>
+				<div class="col-md-8"> 
+					<div id="carouselExampleIndicators" class="carousel slide"
+					data-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active pic">
+						<a href="https://science.missouristate.edu/assets/science/StudyGroup2.jpg">
+							<img class="d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup.jpg" 
+>>>>>>> af5fb34b45d3dc828680b10f0d80598fa580266e
 							alt="https://science.missouristate.edu/assets/science/StudyGroup2.jpg" title="https://science.missouristate.edu/assets/science/StudyGroup2.jpg"> </a>
 							<div class="carousel-caption d-none d-md-block">
 								<div class="banner-text">
@@ -227,8 +265,16 @@
 							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
 					</div>
 				</div> <!-- Right banner -->
+=======
+
+				</div>
+			</div> <!-- Right banner -->
+		</div>
+
+>>>>>>> af5fb34b45d3dc828680b10f0d80598fa580266e
 	</section>
 
 
