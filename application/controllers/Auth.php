@@ -25,9 +25,10 @@ class Auth extends CI_Controller
                 $data_ret = $ret->result();
                 $this->session->set_userdata('s_id', $data_ret[0]->id);
                 $this->session->set_userdata('s_user', $data_ret[0]->mem_user);
+                $this->session->set_userdata('s_fname', $data_ret[0]->mem_fname);
                 redirect('Home');
             } else {
-                $data['errorlog'] = "<div class='alert alert-danger' role='alert'>Wrong username or password</div>";
+                $data['errorlog'] = "<div class='alert alert-danger' role='alert'>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</div>";
                 $this->load->view('user/login', $data);
             }
         }
