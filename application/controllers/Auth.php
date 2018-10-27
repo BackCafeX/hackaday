@@ -16,9 +16,8 @@ class Auth extends CI_Controller {
     {
         $username = $this->input->post('member_user');
         $password = $this->input->post('member_pass');
-        $data['main_content'] = "home/home";
-        $this->load->view('includes/templete',$data);     
-    
+        redirect('Home');
+        
     }
 
 public function register()

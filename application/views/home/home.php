@@ -98,6 +98,53 @@
           </div>
         </div>
       </div>
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>ชื่อห้อง</th>
+                    <th>วิชา</th>
+                    <th>สถานที่</th>
+                    <th>เวลาเริ่ม และ เวลาสิ้นสุด</th>
+                    <th>ชื่อผู้สอน</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            if(count($rs)==0)
+            {
+                echo "<tr><td colspan='4' align='center'>--No data --</td></tr>";
+            }else
+            {
+                $noe=1;
+                foreach($rs as $r)
+                {
+                    echo "<tr>";
+                   // echo "<td align='center'>$noe<td>";
+                    echo "<tr>";
+                    echo "<td>".$r['c_id']."</td>";
+                    echo "<td>".$r['c_room']."</td>";
+                    echo "<td>".$r['c_subject']."</td>";
+                    echo "<td>".$r['c_place']."</td>";
+                    echo "<td>".$r['c_time_start']." ถึง ".$r['c_time_end']."</td>";
+                    
+                    echo "<td align='center'>";
+                    //echo anchor("member/edit/".$r['id'],"แกไข")."&nbsp;";
+                   // echo anchor("member/del/".$r['id'],"ลบ",array("onclick"=>"javascriptreturn confirm('คุณต้องการลบข้อมูลหรือไม่?');"));
+                    $noe++;
+                }
+            }
+            ?>
+        
+            </tbody>
+        </table>
+        <h4>......</h4><br>
+        <hr class="w3-clear">
+        <p>......</p>
+         
+        
+      </div>
       
       
       
