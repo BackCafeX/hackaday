@@ -1,7 +1,7 @@
 <style>
     tbody tr:hover{
          background-color: #f0f0f5
-    }
+    } 
     
 </style>
 
