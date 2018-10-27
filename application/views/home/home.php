@@ -6,6 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
 
+
 <!-- Style css  -->
 <style>
 	tbody tr:hover{
@@ -23,6 +24,14 @@
 		background-clip: padding-box;
 		border: 1px solid #ced4da;border-radius: 0.25rem;
 		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
+	a:link,hover,active	{
+		text-decoration: none;
+		color: white;
+	}
+	.button2:hover,active {
+		background-color: #0099cc; 
+		box-shadow: 0 5px 15px 0 rgba(0,0,0,0.24),0 5px 15px 0 rgba(0,0,0,0.19);
 	}
 </style>
 
@@ -51,16 +60,68 @@
 			 
 			<!-- Accordion -->
 			<div class="w3-white">
-				<div style=" background-color:#0099cc; color:white;" >
-					<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> ตารางเรียน</button>
+				<div>
+					<button onclick="myFunction('Demo1')" class="button2 w3-btn w3-block w3-left-align " style=" background-color:#0099cc; color:white; border: none;">
+						<i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> ตารางเรียน
+					</button>
 						<div id="Demo1" class="w3-hide w3-container">
-						  <p> ตารางเรียน </p>
+						  <!-- Table -->
+							<table class="table">
+								<thead>
+									<tr>
+									  <th scope="col">ชื่อห้อง</th>
+									  <th scope="col">วิชา</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										if(count($tb_list)==0){
+										  echo "<tr><td colspan='4' align='center'>-- No data --</td></tr>";
+										}else{
+											foreach($tb_list as $r){
+												echo "<tr>";
+													echo "<td>".$r['c_room']."</td>";
+													echo "<td>".$r['c_subject']."</td>";
+												echo "</tr>";
+											}
+										}
+									?>
+								</tbody>
+								<!-- End table -->
+							</table>
 						</div>
-					<button onclick="myFunction('Demo2')" class="w3-button w3-block w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> ตารางสอน</button>
+					<button onclick="myFunction('Demo2')" class="button2 w3-btn w3-block w3-left-align" style=" background-color:#0099cc; color:white;">
+						<i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> ตารางสอน
+					</button>
 						<div id="Demo2" class="w3-hide w3-container">
-						  <p> ตารางสอน </p>
+						  <!-- Table -->
+							<table class="table">
+								<thead>
+									<tr>
+									  <th scope="col">ชื่อห้อง</th>
+									  <th scope="col">วิชา</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										if(count($tb_tutor)==0){
+										  echo "<tr><td colspan='4' align='center'>-- No data --</td></tr>";
+										}else{
+											foreach($tb_tutor as $r){
+												echo "<tr>";
+													echo "<td>".$r['c_room']."</td>";
+													echo "<td>".$r['c_subject']."</td>";
+												echo "</tr>";
+											}
+										}
+									?>
+								</tbody>
+								<!-- End table -->
+							</table>
 						</div>
-					<button onclick="myFunction('Demo3')" class="w3-button w3-block w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> รูปภาพของฉัน </button>
+					<button onclick="myFunction('Demo3')" class="button2 w3-btn w3-block w3-left-align" style=" background-color:#0099cc; color:white;">
+						<i class="fa fa-users fa-fw w3-margin-right" ></i> รูปภาพของฉัน 
+					</button>
 						<div id="Demo3" class="w3-hide w3-container">
 							<div class="w3-row-padding"><br>
 								<!-- Empty -->
@@ -99,191 +160,170 @@
 					<div class="w3-card w3-round w3-white">
 						<div class="w3-container w3-padding" >
 							<div class="form-group">
-								<div style="magin-bottom: 0;">
+								<div class="w3-left">
 									<button type="button" href="#myModal" style="border-radius: 8px; background-color:#0099cc; color:white;border: none;" class="w3-round w3-btn " data-toggle="modal" data-target="#myModal">
-									<i class="fa fa-pencil"></i> สร้างห้องสอน</button>
-								</div>  
+									<i class="fa fa-pencil"></i> สร้างห้องเรียน </button>
+								</div>
 					  
-					<!-- Modal Create Room -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					
-						<!-- End content -->
-						<div class="modal-dialog" role="document">
-							
-							<!-- Modal content -->
-							<div class="modal-content">
-							
-								<!-- Head -->
-								<div class="modal-header">
-									<h5 class="modal-title" id=""> สร้างห้องเรียน </h5>
-									<button type="button" class="btn btn-secondary" style="background-color:#ff4d4d; color:white;border: none;" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">X</span>
-									</button>
-								</div>
+								<!-- Modal Create Room -->
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								
-								<!-- Enter form-->
-								<div class="modal-body">
-								
-									<!-- Open form-->
-									<?php echo form_open('Course/add');  ?>
-										<div class="modal-body">
-											
-											<!-- Enter room name -->
-											<div class="form-group">
-											  <label  class="text-uppercase">ชื่อห้อง</label>
-											  <input required name="course-name" type="text" class="form-control" placeholder="มาเรียนกับครูนวลนะ">
-											</div>
-											
-											<!-- Enter subject -->
-											<div class="form-group">
-											  <label  class="text-uppercase">วิชาที่สอน</label>
-											  <input required name="course-subject" type="text" class="form-control" placeholder="การโปรแกรม">
-											</div>
-											
-											<!-- Enter place & date -->
-											<div class="row form-group">
-											
-												<!-- Enter place -->
-												<div class="col-sm-7">
-												  <label  class="text-uppercase">สถานที่</label>
-												  <input required name="course-place" type="text" class="form-control" placeholder="IF-5t05">
-												</div> 
-												
-												<!-- Date selection-->
-												<div class="col-sm-5">
-													<label  class="text-uppercase" >วันที่</label>
-													<input  class="form-control-3" name="course-date" id="datepicker2"  placeholder="วันที่เรียน">
-													
-													<!-- Script open date picker2-->
-													<script>
-													  $('#datepicker2').datepicker({
-														uiLibrary: 'bootstrap4'
-													  });
-													</script>
-												</div><br>
-											  </div>
-											  
-											<!-- Time start-->
-											<label>เวลาเริ่ม</label>
-											<div class="row form-group" style="padding-left: 100px">
-											
-												<!-- Hours -->
-												<div class="col-sm-4" >
-													<label class="text-uppercase">ชั่วโมง</label>
-													<input class="form-control" type="number" name="course-hours-start" min="0" max="24" placeholder="00">
-												</div>
-
-												<!-- Minutes -->
-												<div class="col-sm-4">
-													<label class="text-uppercase">นาที</label>
-													<input class="form-control" type="number" name="course-min-start" min="0" max="59" placeholder="00">
-												</div>
-											</div>
-											
-											<!-- Time end-->
-											<label>เวลาสิ้นสุด</label>
-											<div class="row form-group" style="padding-left: 100px">
-												
-												<!-- Hours -->
-												<div class="col-sm-4" >
-													<label class="text-uppercase">ชั่วโมง</label>
-													<input class="form-control" type="number" name="course-hours-end" min="0" max="24" placeholder="00">
-												</div>
-												
-												<!-- Minutes -->
-												<div class="col-sm-4">
-													<label class="text-uppercase">นาที</label>
-													<input class="form-control" type="number" name="course-min-end" min="0" max="59" placeholder="00">
-												</div>
-											</div> 
-											
-											<!-- Enter number of people -->
-											<div class="form-group">
-												<label class="text-uppercase">จำนวนคน</label>
-												<input class="form-control" type="number" name="course-people" min="1" max="20" placeholder="etc. 1, 2 ">
-											</div>
-										</div> 
-								</div>
-							
-								<!-- Confirm -->
-								<div class="modal-footer">
-								  <button type="submit" class="btn btn-secondary" style="background-color:#ff4d4d ; border: none" data-dismiss="modal">ปิด</button>
-								  <input type="submit" name="btsave" class="btn float-right" style="background-color:#0099cc ; border: none; color:white;" value="ยืนยัน"></input>
+									<!-- Model dialog -->
+									<div class="modal-dialog" role="document">
 										
-										<!-- Close form-->
-								  <?php echo form_close();?>
+										<!-- Modal content -->
+										<div class="modal-content">
+										
+											<!-- Head -->
+											<div class="modal-header">
+												<h5 class="modal-title" id=""> สร้างห้องเรียน </h5>
+												<button type="button" class="btn btn-secondary" style="background-color:#ff4d4d; color:white; border: none;" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">X</span>
+												</button>
+											</div>
+											
+											<!-- Enter form-->
+											<div class="modal-body">
+											
+												<!-- Open form-->
+												<?php echo form_open('Course/add');  ?>
+													<div class="modal-body">
+														
+														<!-- Enter room name -->
+														<div class="form-group">
+														  <label  class="text-uppercase">ชื่อห้อง</label>
+														  <input required name="course-name" type="text" class="form-control" placeholder="ชื่อห้อง">
+														</div>
+														
+														<!-- Enter subject -->
+														<div class="form-group">
+														  <label  class="text-uppercase">วิชาที่สอน</label>
+														  <input required name="course-subject" type="text" class="form-control" placeholder="วิชาที่สอน">
+														</div>
+														
+														<!-- Enter place & date -->
+														<div class="row form-group">
+														
+															<!-- Enter place -->
+															<div class="col-sm-7">
+															  <label  class="text-uppercase">สถานที่</label>
+															  <input required name="course-place" type="text" class="form-control" placeholder="สถานที่">
+															</div> 
+															
+															<!-- Date selection-->
+															<div class="col-sm-5" style="width:20px">
+																<label  class="text-uppercase" >วันที่</label>
+																<input type="date" class="form-control" name="course-date"  placeholder="วันที่เรียน">
+															</div><br>
+														  </div>
+														  
+														<!-- Time start-->
+														<label>เวลาเริ่ม</label>
+														<div class="row form-group" style="padding-left: 100px">
+														
+															<!-- Hours -->
+															<div class="col-sm-4" >
+																<label class="text-uppercase">ชั่วโมง</label>
+																<input class="form-control" type="number" name="course-hours-start" min="0" max="24" placeholder="00">
+															</div>
+
+															<!-- Minutes -->
+															<div class="col-sm-4">
+																<label class="text-uppercase">นาที</label>
+																<input class="form-control" type="number" name="course-min-start" min="0" max="59" placeholder="00">
+															</div>
+														</div>
+														
+														<!-- Time end-->
+														<label>เวลาสิ้นสุด</label>
+														<div class="row form-group" style="padding-left: 100px">
+															
+															<!-- Hours -->
+															<div class="col-sm-4" >
+																<label class="text-uppercase">ชั่วโมง</label>
+																<input class="form-control" type="number" name="course-hours-end" min="0" max="24" placeholder="00">
+															</div>
+															
+															<!-- Minutes -->
+															<div class="col-sm-4">
+																<label class="text-uppercase">นาที</label>
+																<input class="form-control" type="number" name="course-min-end" min="0" max="59" placeholder="00">
+															</div>
+														</div> 
+														
+													</div> 
+													
+												<!-- End form-->
+											</div>
+										
+											<!-- Confirm -->
+											<div class="modal-footer">
+											  <button type="submit" class="btn btn-secondary" style="background-color:#ff4d4d ; border: none" data-dismiss="modal">ปิด</button>
+											  <input type="submit" name="btsave" class="btn float-right" style="background-color:#0099cc ; border: none; color:white;" value="ยืนยัน"></input>
+													
+													<!-- Close form-->
+											  <?php echo form_close();?>
+											</div>
+											
+											<!-- End content -->
+										</div>
+										
+										<!-- End model dialog -->
+									</div>
+									
+									<!-- End Create Room -->
 								</div>
-								
-								<!-- End content -->
-							</div>
-							
-							<!-- End content -->
-						</div>
-						
-						<!-- End Create Room -->
-					</div>
-					  
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			
 			<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-			  <div class="table-responsive">
-				<table class="table">
-				  <thead>
-					<tr>
-					  <th scope="col">ลำดับ</th>
-					  <th scope="col">ชื่อห้อง</th>
-					  <th scope="col">วิชา</th>
-					  <!-- <th scope="col">สถานที่</th> -->
-					  <th scope="col">เวลา</th>
-					  <th scope="col">วันที่</th>
-					  <th scope="col">ชื่อผู้สอน</th>
-					</tr>
-				  </thead>
-				  <tbody>
-					<?php
-					if(count($rs)==0)
-					{
-					  echo "<tr><td colspan='4' align='center'>--No data --</td></tr>";
-					}else
-					{
-						$iii = 1;
-					  foreach($rs as $r)
-					  {
-						
-						echo "<tr>";
-								//echo "<td align='center'>$noe<td>";
-						echo "<th scope='row'>".$iii."</th>";
-						echo "<td>".$r['c_room']."</td>";
-						echo "<td>".$r['c_subject']."</td>";
-						//echo "<td>".$r['c_place']."</td>";
-						echo "<td>".substr($r['c_time_start'],0,5)." ถึง ".substr($r['c_time_end'],0,5)."</td>";
-						echo "<td>".$r['c_date']."</td>";
-						echo "<td>".$r['mem_fname']."</td>";
-						//echo "<td>".$r['c_mem_name']."</td>";
-						echo "<td align='center'>";
-						echo anchor("Course/enroll/".$r['c_id'],"Eroll")."&nbsp;";
-							   // echo anchor("member/del/".$r['id'],"ลบ",array("onclick"=>"javascriptreturn confirm('คุณต้องการลบข้อมูลหรือไม่?');"));
-						echo "</tr>";
-						$iii++;
-					  }
-					}
-					?>
-					
-				  </tbody>
-				</table>
-			  </div>
-			  
-			  
-			  <h4>......</h4><br>
-			  <hr class="w3-clear">
-			  <p>......</p>
-			  
-			  
-			  
-			  
+				<div class="table-responsive">
+				
+					<!-- Table -->
+					<table class="table">
+						<thead>
+							<tr>
+							  <th scope="col">ลำดับ</th>
+							  <th scope="col">ชื่อห้อง</th>
+							  <th scope="col">วิชา</th>
+							  <th scope="col">เวลา</th>
+							  <th scope="col">วันที่</th>
+							  <th scope="col">ชื่อผู้สอน</th>
+							  <th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+								if(count($rs)==0){
+								  echo "<tr><td colspan='4' align='center'>-- No data --</td></tr>";
+								}else{
+									$count = 1;
+									foreach($rs as $r){
+										echo "<tr>";
+										echo "<th scope='row'>".$count."</th>";
+											echo "<td>".$r['c_room']."</td>";
+											echo "<td>".$r['c_subject']."</td>";
+											echo "<td>".substr($r['c_time_start'],0,5)." ถึง ".substr($r['c_time_end'],0,5)."</td>";
+											echo "<td>".$r['c_date']."</td>";
+											echo "<td>".$r['mem_fname']."</td>";
+											echo "<td align='center'>";
+										echo "<button style='border-radius: 8px; background-color:#0099cc; color:white;border: none;' class='w3-round w3-btn '>";
+											echo anchor("Course/enroll/".$r['c_id'],"Enroll")."&nbsp;";
+										echo "</button>";
+										echo "</tr>";
+										$count++;
+									}
+								}
+							?>
+						</tbody>
+						<!-- End table -->
+					</table>
+				</div>
+				
+				<h4 class="text-center">......</h4><br>
 			  
 			</div>
 			

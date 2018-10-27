@@ -22,7 +22,6 @@ class Course extends CI_Controller
             $ara = array(
                 "c_room" => $this->input->post("course-name"),
                 "c_subject" => $this->input->post("course-subject"),
-                "c_amount" => $this->input->post("course-people"),
                 "c_place" => $this->input->post("course-place"),
                 "c_date" => $this->input->post("course-date"),
                 "c_time_start" => $t_start,
@@ -31,6 +30,20 @@ class Course extends CI_Controller
                 "c_mem_user" => $this->session->s_user
             );
             $this->db->insert("course", $ara);
+            
+            $this->db->select('*');
+            $this->db->from('course');
+            
+            $ary = $this->db->get();
+            $arylength = $ary->num_rows();
+            
+            $ara2 = array(
+                "my_mem_user" => $this->session->s_user,
+                "my_isTutor" => '1',
+                "my_c_id" => $arylength  
+            );
+            
+            $this->db->insert("mycourse", $ara2);
 
             ?>
 <script>alert('successfully');</script>
@@ -65,18 +78,18 @@ class Course extends CI_Controller
                 "my_isPresent" => "0"
             );
 
-            $this->db->insert("mycourse", $ara);
+            $this->db->insert("mycourse", $ara);   
 
             ?>
-<script>alert('Enroll successfully');</script>
+<script>alert('Enroll Successfully');</script>
 <?php
-            //redirect("Home", "refresh");
+            redirect("Home", "refresh");
         } else {
 
             ?>
 <script>alert('Enroll Error');</script>
 <?php
-            //redirect("Home", "refresh");
+            redirect("Home", "refresh");
         }
     }
 }//class

@@ -31,6 +31,9 @@ class Home extends CI_Controller
         $this->db->where('course.c_status', '1'); 
         $query = $this->db->get();
         $data['rs'] = $query->result_array();
+        
+        $data['tb_tutor'] = $this->tb_tutor();
+        $data['tb_list'] = $this->tb_list();
         $data['main_content'] = "home/home";
         $this->load->view('includes/templete', $data);
         /*
@@ -51,19 +54,23 @@ class Home extends CI_Controller
     }
     
     public function tb_tutor(){
-        
-        $id = $this->session->s_id;
-       $sql = "SELECT mycourse.my_mem_user FROM mycourse WHERE mycourse.my_mem_user = $id AND mycourse.my_isTutor = 1";
-        $id = $this->session->s_id;
-        $rs = $this->db->query($sql);
-        return $rs->result_array();
+        $this->db->select('*');
+        $this->db->from('mycourse');
+        $this->db->join('course', 'mycourse.my_c_id = course.c_id');
+        $this->db->where('mycourse.my_isTutor','1');
+        $this->db->where('mycourse.my_mem_user',$this->session->s_user);
+        $query = $this->db->get();
+        return $query->result_array();
     }
     
     public function tb_list(){
-        $id = $this->session->s_id;
-        $sql = "SELECT course.c_mem_user,member.mem_user FROM 'course' INNER JOIN member ON course.c_mem_user = member.mem_user";
-        $rs = $this->db->query($sql);
-        return $rs->result_array();
+        $this->db->select('*');
+        $this->db->from('mycourse');
+        $this->db->join('course', 'mycourse.my_c_id = course.c_id');
+        $this->db->where('mycourse.my_isTutor','0');
+        $this->db->where('mycourse.my_mem_user',$this->session->s_user);
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
 }
