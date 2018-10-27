@@ -1,3 +1,14 @@
+<?php 
+        if($this->session->s_id == ""){
+            redirect("Auth", "refresh");
+        }
+?>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 <style>
 tbody tr:hover{
  background-color: #f0f0f5
@@ -29,23 +40,25 @@ tbody tr:hover{
          <div class="form-group w3-container">
            <br><h4 class="w3-center">My Profile</h4>
          </div>
-         <p class="w3-center"><img src="<?php echo base_url();?>assets/img/profile/<?php echo "60160157.jpg";?>" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <p class="w3-center"><img src="https://reg.buu.ac.th/registrar/getstudentimage.asp?id=<?php echo $this->session->s_user?>" class="w3-circle" style="height:160px;width:160px" alt="Avatar"></p>
          <hr> <!-- Avatar -->
+        <!-- Logout -->
+        <a href="<?php echo base_url();?>index.php/Auth/logout">Logout</a>
      </div>
      <br>
      
      <!-- Accordion -->
-     <div class="w3-card w3-round">
-      <div class="w3-white">
-        <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> ตารางเรียน</button>
+     <div class="w3-white">
+      <div style=" background-color:#0099cc; color:white;" >
+        <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> ตารางเรียน</button>
         <div id="Demo1" class="w3-hide w3-container">
           <p> ตารางเรียน </p>
         </div>
-        <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> ตารางสอน</button>
+        <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> ตารางสอน</button>
         <div id="Demo2" class="w3-hide w3-container">
           <p> ตารางสอน </p>
         </div>
-        <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> รูปภาพของฉัน </button>
+        <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> รูปภาพของฉัน </button>
         <div id="Demo3" class="w3-hide w3-container">
          <div class="w3-row-padding">
            <br>
@@ -103,7 +116,7 @@ tbody tr:hover{
         <div class="w3-container w3-padding" >
           <div class="form-group">
 			<div style="magin-bottom: 0;">
-            <button type="button" href="#myModal" style="border-radius: 8px;" class="w3-round w3-btn w3-theme" data-toggle="modal" data-target="#myModal">
+            <button type="button" href="#myModal" style="border-radius: 8px; background-color:#0099cc; color:white;border: none;" class="w3-round w3-btn " data-toggle="modal" data-target="#myModal">
               <i class="fa fa-pencil"></i> สร้างห้องสอน</button>
             </div>  
               <!-- Modal -->
@@ -112,14 +125,14 @@ tbody tr:hover{
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id=""> สร้างห้องเรียน </h5>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">
+                      <button type="button" class="btn btn-secondary" style="background-color:#ff4d4d; color:white;border: none;" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
 
 
-                      <?php echo form_open('Auth/register');  ?>
+                      <?php echo form_open('Course/add');  ?>
                       <div class="modal-body">
                         <div class="form-group">
                           <label  class="text-uppercase">ชื่อห้อง</label>
@@ -130,17 +143,37 @@ tbody tr:hover{
                           <input required name="course-subject" type="password" class="form-control" placeholder="การโปรแกรม">
                         </div> <!-- subject -->
 						<div class="form-group">
-							<label class="text-uppercase">จำนวนคน</label>
-							<input class="form-control-3" type="number" name="course-people" min="1" max="20" placeholder="1, 2 etc.">
-						</div> <!-- number of people -->
-						<div class="form-group">
                           <label  class="text-uppercase">สถานที่</label>
                           <input required name="course-place" type="password" class="form-control" placeholder="IF-5t05">
                         </div> <!-- place -->
+						<label  class="text-uppercase" >วันที่</label>
+						  <div>
+							<input class="form-control-3" name="course-date" id="datepicker2"  placeholder="วันที่เรียน">
+							<script>
+							  $('#datepicker2').datepicker({
+								uiLibrary: 'bootstrap4'
+							  });
+							</script>
+						  </div> <!-- Date selection--> <br>
+						 <div class="row form-group">
+						  <div class="col-sm-4">
+							<label class="text-uppercase">ชั่วโมง</label>
+								<input class="form-control" type="number" name="course-hours" min="0" max="24" placeholder="00">
+							</div> <!-- Hours -->
+							<div class="col-sm-4">
+							<label class="text-uppercase">นาที</label>
+								<input class="form-control" type="number" name="course-min" min="0" max="59" placeholder="00">
+							</div> <!-- Minutes --> <!-- Time -->
+							<div class="col-sm-4">
+								<label class="text-uppercase">จำนวนคน</label>
+								<input class="form-control" type="number" name="course-people" min="1" max="20" placeholder="etc. 1, 2 ">
+							</div> <!-- number of people -->
+						</div> 
                      </div>
                      <div class="modal-footer">
-                      <button type="submit" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                      <input type="submit" name="btsave" class="btn btn-login float-right" value="ยืนยัน"></input>
+                      <button type="submit" class="btn btn-secondary" style="background-color:#ff4d4d ; border: none" data-dismiss="modal">ปิด</button>
+                      <input type="submit" name="btsave" class="btn float-right" style="background-color:#0099cc ; border: none; color:white;" value="ยืนยัน"></input>
+                      <?php echo form_close();?>
                     </div>
                   </div>
                 </div>

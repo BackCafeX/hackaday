@@ -217,15 +217,18 @@
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Know Late 2 Learn</h2><br>
+
+                      <?php echo $errorlog;?>
+
 					<?php echo form_open('Auth/login');  ?> 
 					<div class="form-group">
-						<label class="text-uppercase">ชื่อผู้ใช้งาน</label>
-						<input required type="text" class="form-control" name="member_user" placeholder="ชื่อผู้ใช้งาน">
+						<label class="text-uppercase">รหัสผู้ใช้งาน</label>
+						<input required type="text" class="form-control" name="member_user" placeholder="กรอกรหัสนิสิต">
 					</div>  
 					<!--  username	--> 
 					<div class="form-group">
 						<label class="text-uppercase">รหัสผ่าน</label>
-						<input required type="password" class="form-control" name="member_pass" placeholder="รหัสผ่าน">
+						<input required type="password" class="form-control" name="member_pass" placeholder="กรอกรหัสผ่าน">
 					</div> 
 					<!--  password -->
 					<div class="form-check">
@@ -245,7 +248,7 @@
 								<div class="modal-body">
 									<div class="form-group">
 										<label  class="text-uppercase">รหัสผู้ใช้งาน</label>
-										<input required name="member_user" type="text" class="form-control" placeholder="กรอกรหัสผู้ใช้งาน">
+										<input required name="member_user" type="text" class="form-control" placeholder="กรอกรหัสนิสิต">
 									</div> <!-- username -->
 									<div class="form-group">
 										<label  class="text-uppercase">รหัสผ่าน</label>
@@ -258,16 +261,16 @@
 									<div class="row">
 										<div class="form-group col-sm-6">
 											<label  class="text-uppercase">ชื่อ</label>
-											<input required name="fname_user" type="text" class="form-control" placeholder="อธิรุจน์">
+											<input required name="fname_user" type="text" class="form-control" placeholder="ชื่อจริง">
 										</div> <!-- name -->
 										<div class="form-group col-sm-6">
 											<label  class="text-uppercase">นามสกุล</label>
-											<input required name="lname_user" type="text" class="form-control" placeholder="ภูศิตาภรณ์">
+											<input required name="lname_user" type="text" class="form-control" placeholder="นามสกุล">
 										</div> <!-- lastname -->
 									</div>
 									<div class="form-group ">
 											<label  class="text-uppercase">คณะ</label>
-											<input required name="fac_user" type="text" class="form-control" placeholder="วิทยาการสารสนเทศ">
+											<input required name="fac_user" type="text" class="form-control" placeholder="ชื่อคณะ">
 									</div> <!-- faculty -->
 									<div class="row">
 										<div class="col-sm-8 form-group">

@@ -10,9 +10,9 @@
 	}
 </style>
 <!-- Footer -->
-<footer class="w3-container w3-theme-d4 w3-padding-16" id="footer">
+<footer class="w3-container w3-padding-16" style="background-color:#0086b3" id="footer">
   <center><p class="me-text-white">Powered by <a href="#" target="_blank">ILLUMINATI SE#7</a> <br>
-  Contact information: <a href="cluster.se7@gmail.com">cluster.se7@gmail.com</a></center>
+  Contact information: cluster.se7@gmail.com</center>
 </footer>
 
 
