@@ -14,9 +14,25 @@ class Auth extends CI_Controller {
 
     public function login()
     {
-        $username = $this->input->post('member_user');
-        $password = $this->input->post('member_pass');
-        redirect('Home');
+         
+        if($post = $this->input->post()){
+            extract($post);
+            $sql = "select * from member where mem_user = '$member_user' and mem_pass = '$member_pass'";
+            $ret = $this->db->query($sql);
+            if($ret->num_rows()){
+                $data_ret = $ret->result();
+                $this->session->set_userdata('s_id',$data_ret[0]->s_id);
+                $this->session->set_userdata('s_name',$data_ret[0]->s_name);
+                redirect('Home');
+            }else{
+                $data['message'] = "Wrong username or password";
+                $this->load->view('user/login');
+            }
+        }
+        
+        //$username = $this->input->post('member_user');
+        //$password = $this->input->post('member_pass');
+        
         
     }
 
@@ -25,9 +41,11 @@ public function register()
  if($this->input->post("btsave")!=null)
  {
   $ara=array(
-   "member_user"=>$this->input->post("member_user"),
-   "member_pass"=>$this->input->post("member_pass"),
-   "member_email"=>$this->input->post("member_email")
+   "mem_user"=>$this->input->post("member_user"),
+   "mem_pass"=>$this->input->post("member_pass"),
+   "mem_email"=>$this->input->post("member_email"),
+   "mem_age"=>$this->input->post("member_age"),
+   "mem_gender"=>$this->input->post("member_gender")
 );
   $this->db->insert("member",$ara);
 
@@ -43,7 +61,7 @@ public function register()
 }
 }
 public function logout(){
-    $this->session_destroy();
+    $this->session->sess_destroy();
     redirect("Auth","refresh");
 }
 }

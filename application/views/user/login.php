@@ -15,13 +15,13 @@
 	;
 
 	.body{
-		background: #f4ffff;
+		background: #f5ffff;
 	}
 	.login-block {
 		background: #DE6262; /* fallback for old browsers */
 		background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
 		/* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to bottom, #f4ffff, #f4ffff);
+		background: linear-gradient(to bottom, #f5ffff, #f5ffff);
 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 		float: left;
 		width: 100%;
@@ -259,15 +259,15 @@
 									 <div class="row">
 										<div class="col-sm-8 form-group">
 										<label class="text-uppercase">อายุ</label>
-										  <input class="form-control-2" type="number" name="quantity" min="16" max="30" placeholder="15">
+										  <input class="form-control-2" type="number" name="member_age" min="16" max="30" placeholder="15">
 										  <!-- Age -->
 										 </div>
 										 <div class="col-sm-4">
 										   <label class="check-box text-uppercase check"> 
-											  <input type="checkbox" for="check-one" class="form-radio" ><label for="radio-one">ชาย</label>
+											  <input type="checkbox" name="member_gender" for="check-one" class="form-radio" value="m" ><label for="radio-one">ชาย</label>
 											</label>
 											<label class="check-box text-uppercase check">
-											  <input type="checkbox" for="check-one" class="form-radio" ><label for="radio-one"> หญิง</label>
+											  <input type="checkbox" name="member_gender" for="check-one" class="form-radio" value="f"><label for="radio-one"> หญิง</label>
 											</label>
 											<!-- gender -->
 										 </div>
@@ -278,7 +278,6 @@
 									<input type="submit" name="btsave" class="btn btn-login float-right" value="ยืนยัน"></input>
 								</div>
 								<?php echo form_close();?>
-
 							</div>
 						</div>
 					</div>  <!-- Register -->
@@ -298,9 +297,8 @@
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active ">
-						<a href="https://science.missouristate.edu/assets/science/StudyGroup2.jpg">
 							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup1.jpg" 
-							alt="https://science.missouristate.edu/assets/science/StudyGroup2.jpg" title="https://science.missouristate.edu/assets/science/StudyGroup2.jpg"> </a>
+							alt="https://science.missouristate.edu/assets/science/StudyGroup2.jpg" title="https://science.missouristate.edu/assets/science/StudyGroup2.jpg">
 							<div class="carousel-caption d-none d-md-block">
 								<div class="banner-text">
 									 <!-- text -->
@@ -308,9 +306,8 @@
 							</div>
 						</div>
 						<div class="carousel-item ">
-						<a href="http://becas-mexico.mx/wp-content/uploads/2018/09/becas-mexico-2018-licenciatura-en-ciencias-de-la-educacion-distancia.jpg">
 							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup2.jpg" 
-							 title="http://becas-mexico.mx/wp-content/uploads/2018/09/becas-mexico-2018-licenciatura-en-ciencias-de-la-educacion-distancia.jpg"> </a>
+							 title="http://becas-mexico.mx/wp-content/uploads/2018/09/becas-mexico-2018-licenciatura-en-ciencias-de-la-educacion-distancia.jpg">
 							<div class="carousel-caption d-none d-md-block">
 								<div class="banner-text">
 									 <!-- text -->
@@ -318,9 +315,8 @@
 							</div>
 						</div>
 						<div class="carousel-item ">
-						<a href="http://galtoninstitute.org.uk/wp-content/uploads/2015/09/09_Depositphotos_11062948_original.jpg">
 							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup3.jpg" 
-							title="http://galtoninstitute.org.uk/wp-content/uploads/2015/09/09_Depositphotos_11062948_original.jpg"> </a>
+							title="http://galtoninstitute.org.uk/wp-content/uploads/2015/09/09_Depositphotos_11062948_original.jpg">
 							<div class="carousel-caption d-none d-md-block">
 								<div class="banner-text">
 									 <!-- text -->
