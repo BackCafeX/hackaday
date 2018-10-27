@@ -1,3 +1,10 @@
+<style>
+    tbody tr:hover{
+         background-color: #f0f0f5
+    }
+    
+</style>
+
 <!-- Page Container -->
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
   <!-- The Grid -->
@@ -84,7 +91,7 @@
     </div>
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m9">
       <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
@@ -99,7 +106,10 @@
         </div>
       </div>
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <table class="table">
+      <div class="form-group">
+          
+      
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ลำดับ</th>
@@ -107,6 +117,7 @@
                     <th>วิชา</th>
                     <th>สถานที่</th>
                     <th>เวลาเริ่ม และ เวลาสิ้นสุด</th>
+                    <th>วันที่</th>
                     <th>ชื่อผู้สอน</th>
                 </tr>
             </thead>
@@ -128,7 +139,7 @@
                     echo "<td>".$r['c_subject']."</td>";
                     echo "<td>".$r['c_place']."</td>";
                     echo "<td>".$r['c_time_start']." ถึง ".$r['c_time_end']."</td>";
-                    
+                    echo "<td>".$r['c_date']."</td>";
                     echo "<td align='center'>";
                     //echo anchor("member/edit/".$r['id'],"แกไข")."&nbsp;";
                    // echo anchor("member/del/".$r['id'],"ลบ",array("onclick"=>"javascriptreturn confirm('คุณต้องการลบข้อมูลหรือไม่?');"));
@@ -139,6 +150,10 @@
         
             </tbody>
         </table>
+        
+        </div>
+        
+        
         <h4>......</h4><br>
         <hr class="w3-clear">
         <p>......</p>
@@ -150,38 +165,7 @@
       
     <!-- End Middle Column -->
     </div>
-    
-    <!-- Right Column -->
-    <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          
-          <p>......</p>
-          
-          
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-         <p>......</p>
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-        <p>...</p>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-        <p>......</p>
-      </div>
-      
-    <!-- End Right Column -->
-    </div>
-    
+
   <!-- End Grid -->
   </div>
   

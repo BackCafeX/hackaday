@@ -15,17 +15,19 @@
 	;
 
 	.body{
-		background: #66b3ff;
+		background: #f4ffff;
 	}
 	.login-block {
 		background: #DE6262; /* fallback for old browsers */
 		background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
 		/* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to bottom, #e6f2ff, #66b3ff);
+		background: linear-gradient(to bottom, #f4ffff, #f4ffff);
 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 		float: left;
 		width: 100%;
-		padding: 20px 0;
+		margin-top: 30px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.banner-sec {
@@ -210,15 +212,15 @@
 	})
 </script>
 <body class="body">
-	<section class="login-block">
+	<section class="login-block ">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h3 class="text-center">Know Late 2 Learn</h3><br><br>
+					<h2 class="text-center">Know Late 2 Learn</h2><br>
 					<?php echo form_open('Auth/login');  ?> 
 					<div class="form-group">
-						<label class="text-uppercase">รหัสผู้ใช้งาน</label>
-						<input required type="text" class="form-control" name="member_user" placeholder="รหัสผู้ใช้งาน">
+						<label class="text-uppercase">ชื่อผู้ใช้งาน</label>
+						<input required type="text" class="form-control" name="member_user" placeholder="ชื่อผู้ใช้งาน">
 					</div>  
 					<!--  username	--> 
 					<div class="form-group">
@@ -233,10 +235,10 @@
 
 					<button type="submit" href="#myModal" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">สมัครสมาชิก</button>
 					<!-- Modal -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="banner" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" role="banner" >
+					<div class="modal fade" id="myModal" tabindex="-1" role="" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="" >
 							<div class="modal-content">
-								<div class="modal-header">
+								<div class="modal-header text-center">
 									<h5 class="modal-title" id="exampleModalCenterTitle">สมัครสมาชิก</h5>
 								</div>
 								<?php echo form_open('Auth/register');  ?>
@@ -286,13 +288,39 @@
 					</div>
 		</div>
 				<div class="col-md-8 ">
-					<div id="" class=""
+					<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0"
+						class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active ">
 						<a href="https://science.missouristate.edu/assets/science/StudyGroup2.jpg">
-							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup.jpg" 
+							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup1.jpg" 
 							alt="https://science.missouristate.edu/assets/science/StudyGroup2.jpg" title="https://science.missouristate.edu/assets/science/StudyGroup2.jpg"> </a>
+							<div class="carousel-caption d-none d-md-block">
+								<div class="banner-text">
+									 <!-- text -->
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item ">
+						<a href="http://becas-mexico.mx/wp-content/uploads/2018/09/becas-mexico-2018-licenciatura-en-ciencias-de-la-educacion-distancia.jpg">
+							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup2.jpg" 
+							 title="http://becas-mexico.mx/wp-content/uploads/2018/09/becas-mexico-2018-licenciatura-en-ciencias-de-la-educacion-distancia.jpg"> </a>
+							<div class="carousel-caption d-none d-md-block">
+								<div class="banner-text">
+									 <!-- text -->
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item ">
+						<a href="http://galtoninstitute.org.uk/wp-content/uploads/2015/09/09_Depositphotos_11062948_original.jpg">
+							<img class="pic d-block img-fluid" src="<?php echo base_url();?>/assets/img/StudyGroup3.jpg" 
+							title="http://galtoninstitute.org.uk/wp-content/uploads/2015/09/09_Depositphotos_11062948_original.jpg"> </a>
 							<div class="carousel-caption d-none d-md-block">
 								<div class="banner-text">
 									 <!-- text -->
