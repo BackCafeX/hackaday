@@ -136,7 +136,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">LOGIN</h2>
+					<h2 class="text-center">Know Late 2 Learn</h2>
 					<?php echo form_open('Auth/login');  ?>
 					<div class="form-group">
 						<label for="exampleInputEmail1" class="text-uppercase">รหัสผู้ใช้งาน</label>
