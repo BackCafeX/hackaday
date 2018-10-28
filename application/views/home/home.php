@@ -50,7 +50,7 @@
 				</div>
 				
 				<!-- Picture -->
-				<p class="w3-center"><img src="https://reg.buu.ac.th/registrar/getstudentimage.asp?id=<?php echo $this->session->s_user?>" class="w3-circle" style="height:160px;width:160px" alt="Avatar"></p><hr>
+				<p class="w3-center"><img src="https://reg.buu.ac.th/registrar/getstudentimage.asp?id=<?php echo $this->session->s_user?>" class="w3-circle" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); height:160px;width:160px" alt="Avatar"></p><hr>
 				
 				<!-- Name -->
 				<div style="padding: 5px;">
@@ -291,6 +291,9 @@
 			</div>
 			
 			<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+				<div>
+					<h4> รายชื่อห้อง </h4>
+				</div>
 				<div class="table-responsive">
 				
 					<!-- Table -->

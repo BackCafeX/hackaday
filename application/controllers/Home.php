@@ -11,8 +11,6 @@ class Home extends CI_Controller
     public function index()
     {
         /*
-        
-        ///////////////////////////////////////////////////
         $id = $this->session->s_id;
         SELECT member.mem_user,mycourse.my_mem_user FROM `member`
         INNER JOIN mycourse ON $id = mycourse.my_mem_user 
@@ -20,7 +18,8 @@ class Home extends CI_Controller
         */
         /*
         $sql = "select * from course order by c_id asc";
-        $rs = $this->db->query($sql);*/
+        $rs = $this->db->query($sql);
+		*/
         //$data['rs'] = $rs->result_array();
         // $data['rs_tu'] = $this->tb_tutor();
         // $data['rs_st'] = $this->tb_student();

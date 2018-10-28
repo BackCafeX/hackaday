@@ -14,6 +14,7 @@ class Course extends CI_Controller
         $this->load->view('user/login');
     }
 
+	// Functions add
     public function add()
     {
         if ($this->input->post("btsave") != null) {
@@ -45,17 +46,18 @@ class Course extends CI_Controller
             
             $this->db->insert("mycourse", $ara2);
 
-            ?>
-<script>alert('สร้างห้องสำเร็จ');</script>
+?>
+		<script>alert('สร้างห้องสำเร็จ');</script>
 <?php
-            redirect("Home", "refresh");
+        redirect("Home", "refresh");
         } else {
-            ?>
-<script>alert('สร้างห้องไม่สำเร็จ');</script>
+?>
+		<script>alert('สร้างห้องไม่สำเร็จ');</script>
 <?php
         }
     }
 
+	// Function Enroll
     public function enroll($room)
     {
         $check = 1;
@@ -64,7 +66,6 @@ class Course extends CI_Controller
         $this->db->where('my_mem_user', $this->session->s_user);
         $query = $this->db->get();
         foreach ($query->result() as $value) {
-            //echo $value->my_c_id. " = " . $room;
             if($value->my_c_id == $room){
                 $check = 0;
             }  
@@ -80,19 +81,22 @@ class Course extends CI_Controller
 
             $this->db->insert("mycourse", $ara);   
 
-            ?>
-<script>alert('เข้าร่วมห้องสำเร็จ');</script>
+?>
+		<script>alert('เข้าร่วมห้องสำเร็จ');</script>
 <?php
             redirect("Home", "refresh");
         } else {
 
             ?>
-<script>alert('คุณเข้าร่วมห้องนี้แล้ว');</script>
+		<script>alert('มีรายการนี้อยู่แล้ว');</script>
 <?php
             redirect("Home", "refresh");
         }
     }
-    function update_status($room){
+	
+	// Function update_status
+    function update_status($room)
+	{
 		$check = 0;
 		$this->db->select('*');
         $this->db->from('course');
@@ -102,7 +106,8 @@ class Course extends CI_Controller
 		$this->db->where('mycourse.my_mem_user', $this->session->s_user);
 		$this->db->where('mycourse.my_isTutor', '1');
         $query = $this->db->get();
-        foreach ($query->result() as $value) {
+        
+		foreach ($query->result() as $value) {
             if($value->my_c_id == $room){
                 $check = 1;
             }
@@ -112,19 +117,20 @@ class Course extends CI_Controller
 			$this->update_status2($room);
 
             ?>
-<script>alert('update Successfully');</script>
+		<script>alert('สำเร็จ');</script>
 <?php
-            redirect("Home", "refresh");
+			redirect("Home", "refresh");
         } else {
 
-            ?>
-<script>alert('update Error');</script>
+?>
+		<script>alert('ไม่สำเร็จ');</script>
 <?php
             redirect("Home", "refresh");
         }
 		 
 	}
-
+	
+	// Function update_status2 
 	function update_status2($room){
 			$title = 0;
 			$data = array(
@@ -135,6 +141,3 @@ class Course extends CI_Controller
 			$this->db->update('course', $data); 
 	}
 }//class
-
-
-
