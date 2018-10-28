@@ -138,7 +138,9 @@
 					</button>
 						<div id="Demo3" class="w3-hide w3-container">
 							<div class="w3-row-padding"><br>
-								<!-- wait -->
+								<p>Name<?php echo " : ".$this->session->s_fname . " " . $this->session->s_lname ;?></p>
+								<p>Age<?php echo " : ".$this->session->s_age;?></p>
+								<p>Faculty<?php echo " : ".$this->session->s_faculty;?></p>
 							</div>
 					    </div>
 				</div>      
@@ -178,7 +180,7 @@
 									<button type="button" href="#myModal" style="border-radius: 8px; background-color:#0099cc; color:white;border: none;" class="w3-round w3-btn " data-toggle="modal" data-target="#myModal">
 									<i class="fa fa-pencil"></i> สร้างห้องเรียน </button>
 								</div>
-					  
+							
 								<!-- Modal Create Room -->
 								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								
@@ -206,13 +208,13 @@
 														<!-- Enter room name -->
 														<div class="form-group">
 														  <label  class="text-uppercase">ชื่อห้อง</label>
-														  <input required name="course-name" type="text" class="form-control" placeholder="ชื่อห้อง">
+														  <input required name="course-name" type="text" class="form-control" maxlength="20" placeholder="ชื่อห้อง">
 														</div>
 														
 														<!-- Enter subject -->
 														<div class="form-group">
 														  <label  class="text-uppercase">วิชาที่สอน</label>
-														  <input required name="course-subject" type="text" class="form-control" placeholder="วิชาที่สอน">
+														  <input required name="course-subject" type="text" class="form-control" maxlength="20"  placeholder="วิชาที่สอน">
 														</div>
 														
 														<!-- Enter place & date -->
@@ -221,13 +223,13 @@
 															<!-- Enter place -->
 															<div class="col-sm-7">
 															  <label  class="text-uppercase">สถานที่</label>
-															  <input required name="course-place" type="text" class="form-control" placeholder="สถานที่">
+															  <input required name="course-place" type="text" maxlength="20" class="form-control" placeholder="สถานที่">
 															</div> 
 															
 															<!-- Date selection-->
 															<div class="col-sm-5" style="width:20px">
 																<label class="text-uppercase" >วันที่</label>
-																<input required type="date" class="form-control" name="course-date"  placeholder="วันที่เรียน">
+																<input required type="date" class="form-control" maxlength="20" name="course-date"  placeholder="วันที่เรียน">
 															</div><br>
 														  </div>
 														  
@@ -320,7 +322,7 @@
 								}else{
 									$count = 1;
 									foreach($rs as $r){
-										echo "<tr>";
+										echo "<tr>";  
 										echo "<th scope='row'>".$count."</th>";
 											echo "<td>".$r['c_room']."</td>";
 											echo "<td>".$r['c_subject']."</td>";

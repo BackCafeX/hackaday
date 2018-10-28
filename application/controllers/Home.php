@@ -75,4 +75,20 @@ class Home extends CI_Controller
         return $query->result_array();
     }
 
+    public function c_show(){
+        $sql = "SELECT * FROM course";
+        
+        if ($this->input->post('tbSelect') != "" and $this->input->post('txtKey') != "") 
+        {
+            $sql .= " WHERE (" . $this->input->post('tbSelect') . " LIKE '%" . $this->input->post('txtKey') . "%')";
+        }
+        $objQuery = $this->db->query($sql);
+
+        $data['rs'] = $objQuery->result_array();
+        
+        $data['tb_tutor'] = $this->tb_tutor();
+        $data['tb_list'] = $this->tb_list();
+        $data['main_content'] = "home/home";
+        $this->load->view('includes/templete', $data);
+    }
 }
