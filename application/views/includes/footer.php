@@ -16,7 +16,7 @@
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-16" style="background-color:#0086b3" id="footer">
-  <center><p class="me-text-white">Powered by <a href="#" target="_blank">ILLUMINATI SE#7</a> <br>
+  <center><p class="me-text-white">Powered by ILLUMINATI SE#7 <br>
   Contact information: cluster.se7@gmail.com</center>
 </footer>
 

@@ -54,15 +54,52 @@
 				
 				<!-- Name -->
 				<div style="padding: 5px;">
-					<p class=" text-center"><?php echo $this->session->s_fname;?></p>
+					<p class=" text-center text-uppercase"> <?php echo $this->session->s_fname;?> </p>
 				</div>
 			</div><br>
 			 
 			<!-- Accordion -->
 			<div class="w3-white">
 				<div>
+					<!-- ตารางสอน -->
+					<button onclick="myFunction('Demo2')" class="button2 w3-btn w3-block w3-left-align" style=" background-color:#0099cc; color:white;">
+						<i class="fa fa-calendar fa-fw w3-margin-right"></i> ตารางสอน
+					</button>
+						<div id="Demo2" class="w3-hide w3-container">
+						  <!-- Table -->
+							<table class="table">
+								<thead>
+									<tr>
+									  <th scope="col">ชื่อห้อง</th>
+									  <th scope="col">วิชา</th>
+									  <th scope="col"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										if(count($tb_tutor)==0){
+										  echo "<tr><td colspan='4' align='center'> -- No data -- </td></tr>";
+										}else{
+											foreach($tb_tutor as $r){
+												echo "<tr>";
+													echo "<td>".$r['c_room']."</td>";
+													echo "<td>".$r['c_subject']."</td>";
+													echo "<td align='center'>";
+													echo "<button style='border-radius: 8px; background-color:#0099cc; color:white;border: none;' class='w3-round w3-btn '>";
+														echo anchor("Course/update_status/".$r['c_id'],"สิ้นสุด")."&nbsp;";
+													echo "</button>";
+												echo "</tr>";
+											}
+										}
+									?>
+								</tbody>
+								<!-- End table -->
+							</table>
+						</div>
+					
+					<!-- ตารางเรียน -->
 					<button onclick="myFunction('Demo1')" class="button2 w3-btn w3-block w3-left-align " style=" background-color:#0099cc; color:white; border: none;">
-						<i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> ตารางเรียน
+						<i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> ตารางเรียน
 					</button>
 						<div id="Demo1" class="w3-hide w3-container">
 						  <!-- Table -->
@@ -71,12 +108,13 @@
 									<tr>
 									  <th scope="col">ชื่อห้อง</th>
 									  <th scope="col">วิชา</th>
+									  <th scope="col"></th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 										if(count($tb_list)==0){
-										  echo "<tr><td colspan='4' align='center'>-- No data --</td></tr>";
+										  echo "<tr><td colspan='4' align='center'> -- No data -- </td></tr>";
 										}else{
 											foreach($tb_list as $r){
 												echo "<tr>";
@@ -90,37 +128,9 @@
 								<!-- End table -->
 							</table>
 						</div>
-					<button onclick="myFunction('Demo2')" class="button2 w3-btn w3-block w3-left-align" style=" background-color:#0099cc; color:white;">
-						<i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> ตารางสอน
-					</button>
-						<div id="Demo2" class="w3-hide w3-container">
-						  <!-- Table -->
-							<table class="table">
-								<thead>
-									<tr>
-									  <th scope="col">ชื่อห้อง</th>
-									  <th scope="col">วิชา</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-										if(count($tb_tutor)==0){
-										  echo "<tr><td colspan='4' align='center'>-- No data --</td></tr>";
-										}else{
-											foreach($tb_tutor as $r){
-												echo "<tr>";
-													echo "<td>".$r['c_room']."</td>";
-													echo "<td>".$r['c_subject']."</td>";
-												echo "</tr>";
-											}
-										}
-									?>
-								</tbody>
-								<!-- End table -->
-							</table>
-						</div>
+						
 					<button onclick="myFunction('Demo3')" class="button2 w3-btn w3-block w3-left-align" style=" background-color:#0099cc; color:white;">
-						<i class="fa fa-users fa-fw w3-margin-right" ></i> รูปภาพของฉัน 
+						<i class="fa fa-picture-o fa-fw w3-margin-right" ></i> รูปภาพของฉัน 
 					</button>
 						<div id="Demo3" class="w3-hide w3-container">
 							<div class="w3-row-padding"><br>
@@ -133,19 +143,20 @@
 		   <!-- Interest div --> 
 		    <div class="w3-card w3-round w3-white w3-hide-small">
 				<div class="w3-container">
-				  <br><p> เรื่องที่น่าสนใจ </p>
+				  <br><p> สิ่งที่หน้าสนใจ </p>
 				  <p>
-					<span class="w3-tag w3-small w3-theme-d5">News</span>
-					<span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-					<span class="w3-tag w3-small w3-theme-d3">Labels</span>
-					<span class="w3-tag w3-small w3-theme-d2">Games</span>
-					<span class="w3-tag w3-small w3-theme-d1">Friends</span>
-					<span class="w3-tag w3-small w3-theme">Games</span>
-					<span class="w3-tag w3-small w3-theme-l1">Friends</span>
-					<span class="w3-tag w3-small w3-theme-l2">Food</span>
-					<span class="w3-tag w3-small w3-theme-l3">Design</span>
-					<span class="w3-tag w3-small w3-theme-l4">Art</span>
-					<span class="w3-tag w3-small w3-theme-l5">Photos</span>
+					ว่าง 
+					<!-- <span class="w3-tag w3-small w3-theme-d5">News</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-d4">W3Schools</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-d3">Labels</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-d2">Games</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-d1">Friends</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme">Games</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-l1">Friends</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-l2">Food</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-l3">Design</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-l4">Art</span> -->
+					<!-- <span class="w3-tag w3-small w3-theme-l5">Photos</span> -->
 				  </p>
 				</div>
 		    </div><br>
@@ -289,6 +300,7 @@
 							  <th scope="col">ลำดับ</th>
 							  <th scope="col">ชื่อห้อง</th>
 							  <th scope="col">วิชา</th>
+							  <th scope="col">สถานที่</th>
 							  <th scope="col">เวลา</th>
 							  <th scope="col">วันที่</th>
 							  <th scope="col">ชื่อผู้สอน</th>
@@ -306,13 +318,16 @@
 										echo "<th scope='row'>".$count."</th>";
 											echo "<td>".$r['c_room']."</td>";
 											echo "<td>".$r['c_subject']."</td>";
+											echo "<td>".$r['c_place']."</td>";
 											echo "<td>".substr($r['c_time_start'],0,5)." ถึง ".substr($r['c_time_end'],0,5)."</td>";
 											echo "<td>".$r['c_date']."</td>";
 											echo "<td>".$r['mem_fname']."</td>";
 											echo "<td align='center'>";
-										echo "<button style='border-radius: 8px; background-color:#0099cc; color:white;border: none;' class='w3-round w3-btn '>";
-											echo anchor("Course/enroll/".$r['c_id'],"Enroll")."&nbsp;";
+										echo "<a>";
+										echo "<button style='border-radius: 8px; background-color:#0099cc; color:white; border: none;' class='w3-round w3-btn '>";
+											echo anchor("Course/enroll/".$r['c_id'],"Join")."&nbsp;";
 										echo "</button>";
+										echo "</a>";
 										echo "</tr>";
 										$count++;
 									}

@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -23,8 +22,8 @@ class Home extends CI_Controller
         $sql = "select * from course order by c_id asc";
         $rs = $this->db->query($sql);*/
         //$data['rs'] = $rs->result_array();
-       // $data['rs_tu'] = $this->tb_tutor();
-       // $data['rs_st'] = $this->tb_student();
+        // $data['rs_tu'] = $this->tb_tutor();
+        // $data['rs_st'] = $this->tb_student();
         $this->db->select('*');
         $this->db->from('course');
         $this->db->join('member', 'course.c_mem_user = member.mem_user');
@@ -44,7 +43,7 @@ class Home extends CI_Controller
         $data['rs'] = $rs->result_array();
         $data['main_content'] = "home/home";
         $this->load->view('includes/templete', $data);
-        รายชื้อผู้สอน
+			รายชื้อผู้สอน
         */
     }
     
@@ -53,21 +52,25 @@ class Home extends CI_Controller
         return  $this->db->query($sql);
     }
     
-    public function tb_tutor(){
+    public function tb_tutor()
+	{
         $this->db->select('*');
         $this->db->from('mycourse');
         $this->db->join('course', 'mycourse.my_c_id = course.c_id');
         $this->db->where('mycourse.my_isTutor','1');
+        $this->db->where('course.c_status', '1'); 
         $this->db->where('mycourse.my_mem_user',$this->session->s_user);
         $query = $this->db->get();
         return $query->result_array();
     }
     
-    public function tb_list(){
+    public function tb_list()
+	{
         $this->db->select('*');
         $this->db->from('mycourse');
         $this->db->join('course', 'mycourse.my_c_id = course.c_id');
         $this->db->where('mycourse.my_isTutor','0');
+        $this->db->where('course.c_status','1');
         $this->db->where('mycourse.my_mem_user',$this->session->s_user);
         $query = $this->db->get();
         return $query->result_array();

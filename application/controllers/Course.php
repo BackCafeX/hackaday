@@ -46,12 +46,12 @@ class Course extends CI_Controller
             $this->db->insert("mycourse", $ara2);
 
             ?>
-<script>alert('successfully');</script>
+<script>alert('สร้างห้องสำเร็จ');</script>
 <?php
             redirect("Home", "refresh");
         } else {
             ?>
-<script>alert('error while registering you...');</script>
+<script>alert('สร้างห้องไม่สำเร็จ');</script>
 <?php
         }
     }
@@ -67,7 +67,7 @@ class Course extends CI_Controller
             //echo $value->my_c_id. " = " . $room;
             if($value->my_c_id == $room){
                 $check = 0;
-            }
+            }  
         }
 
         if ($check >= 1) {
@@ -81,16 +81,60 @@ class Course extends CI_Controller
             $this->db->insert("mycourse", $ara);   
 
             ?>
-<script>alert('Enroll Successfully');</script>
+<script>alert('เข้าร่วมห้องสำเร็จ');</script>
 <?php
             redirect("Home", "refresh");
         } else {
 
             ?>
-<script>alert('Enroll Error');</script>
+<script>alert('คุณเข้าร่วมห้องนี้แล้ว');</script>
 <?php
             redirect("Home", "refresh");
         }
     }
+    function update_status($room){
+		$check = 0;
+		$this->db->select('*');
+        $this->db->from('course');
+		$this->db->join('mycourse', 'course.c_id = mycourse.my_c_id');
+		
+		$this->db->where('course.c_mem_user', $this->session->s_user);
+		$this->db->where('mycourse.my_mem_user', $this->session->s_user);
+		$this->db->where('mycourse.my_isTutor', '1');
+        $query = $this->db->get();
+        foreach ($query->result() as $value) {
+            if($value->my_c_id == $room){
+                $check = 1;
+            }
+        }
+
+        if ($check == 1) {
+			$this->update_status2($room);
+
+            ?>
+<script>alert('update Successfully');</script>
+<?php
+            redirect("Home", "refresh");
+        } else {
+
+            ?>
+<script>alert('update Error');</script>
+<?php
+            redirect("Home", "refresh");
+        }
+		 
+	}
+
+	function update_status2($room){
+			$title = 0;
+			$data = array(
+               'c_status' => $title
+            );
+
+			$this->db->where('c_id', $room);
+			$this->db->update('course', $data); 
+	}
 }//class
+
+
 

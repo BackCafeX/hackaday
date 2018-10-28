@@ -51,8 +51,7 @@ class Auth extends CI_Controller
                 "mem_faculty" => $this->input->post("fac_user")
             );
             $this->db->insert("member", $ara);
-
-            ?>
+?>
 <script>alert('successfully registered ');</script>
 <?php
             redirect("Auth", "refresh");
