@@ -140,4 +140,22 @@ class Course extends CI_Controller
 			$this->db->where('c_id', $room);
 			$this->db->update('course', $data); 
 	}
+	
+	function cancel_room($room){
+	    $title = 0;
+	    $data = array(
+	        'my_c_id' => $title
+	    );
+	    
+	    $this->db->where('my_mem_user', $this->session->s_user);
+	    $this->db->where('my_c_id', $room);
+	    $this->db->update('mycourse', $data);
+	    
+	        ?>
+		<script>alert('สำเร็จ');</script>
+<?php
+			redirect("Home", "refresh");
+        
+	}
+	
 }//class

@@ -120,6 +120,10 @@
 												echo "<tr>";
 													echo "<td>".$r['c_room']."</td>";
 													echo "<td>".$r['c_subject']."</td>";
+													echo "<td align='center'>";
+													echo "<button style='border-radius: 8px; background-color:#0099cc; color:white; border: none;' class='w3-round w3-btn '>";
+														echo anchor("Course/cancel_room/".$r['c_id'],"ยกเลิก")."&nbsp;";
+													echo "</button>";
 												echo "</tr>";
 											}
 										}
