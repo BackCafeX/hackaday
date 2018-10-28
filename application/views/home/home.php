@@ -130,11 +130,11 @@
 						</div>
 						
 					<button onclick="myFunction('Demo3')" class="button2 w3-btn w3-block w3-left-align" style=" background-color:#0099cc; color:white;">
-						<i class="fa fa-picture-o fa-fw w3-margin-right" ></i> รูปภาพของฉัน 
+						<i class="fa fa-picture-o fa-fw w3-margin-right" ></i> ประวัติส่วนตัว 
 					</button>
 						<div id="Demo3" class="w3-hide w3-container">
 							<div class="w3-row-padding"><br>
-								<!-- Empty -->
+								<!-- wait -->
 							</div>
 					    </div>
 				</div>      
@@ -145,7 +145,6 @@
 				<div class="w3-container">
 				  <br><p> สิ่งที่หน้าสนใจ </p>
 				  <p>
-					ว่าง 
 					<!-- <span class="w3-tag w3-small w3-theme-d5">News</span> -->
 					<!-- <span class="w3-tag w3-small w3-theme-d4">W3Schools</span> -->
 					<!-- <span class="w3-tag w3-small w3-theme-d3">Labels</span> -->
@@ -165,8 +164,8 @@
 		</div>
 
 		<!-- Middle Column -->
-		<div class="w3-col m9">
-			<div class="w3-row-padding">
+		<div class="w3-col m9" style="padding-left: 10px; padding-right: 10px;">
+			<div class="" style="padding-left: 5px;">
 				<div class="w3-col m12">
 					<div class="w3-card w3-round w3-white">
 						<div class="w3-container w3-padding" >
@@ -223,8 +222,8 @@
 															
 															<!-- Date selection-->
 															<div class="col-sm-5" style="width:20px">
-																<label  class="text-uppercase" >วันที่</label>
-																<input type="date" class="form-control" name="course-date"  placeholder="วันที่เรียน">
+																<label class="text-uppercase" >วันที่</label>
+																<input required type="date" class="form-control" name="course-date"  placeholder="วันที่เรียน">
 															</div><br>
 														  </div>
 														  
@@ -235,13 +234,13 @@
 															<!-- Hours -->
 															<div class="col-sm-4" >
 																<label class="text-uppercase">ชั่วโมง</label>
-																<input class="form-control" type="number" name="course-hours-start" min="0" max="24" placeholder="00">
+																<input required class="form-control" type="number" name="course-hours-start" min="0" max="24" placeholder="ชั่วโมง">
 															</div>
 
 															<!-- Minutes -->
 															<div class="col-sm-4">
 																<label class="text-uppercase">นาที</label>
-																<input class="form-control" type="number" name="course-min-start" min="0" max="59" placeholder="00">
+																<input required class="form-control" type="number" name="course-min-start" min="0" max="59" placeholder="นาที">
 															</div>
 														</div>
 														
@@ -252,13 +251,13 @@
 															<!-- Hours -->
 															<div class="col-sm-4" >
 																<label class="text-uppercase">ชั่วโมง</label>
-																<input class="form-control" type="number" name="course-hours-end" min="0" max="24" placeholder="00">
+																<input required class="form-control" type="number" name="course-hours-end" min="0" max="24" placeholder="ชั่วโมง">
 															</div>
 															
 															<!-- Minutes -->
 															<div class="col-sm-4">
 																<label class="text-uppercase">นาที</label>
-																<input class="form-control" type="number" name="course-min-end" min="0" max="59" placeholder="00">
+																<input required class="form-control" type="number" name="course-min-end" min="0" max="59" placeholder="นาที">
 															</div>
 														</div> 
 														
